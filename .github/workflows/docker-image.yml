@@ -21,10 +21,10 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/todolist:LATEST
+      run: docker build . --file Dockerfile --tag ${{DOCKER_USER}}/todolist:LATEST
     - name: Docker push
       run: |
-        docker push ${{secrets.DOCKER_USER}}/todolist:LATEST
+        docker push ${{DOCKER_USER}}/todolist:LATEST
     - name: Docker logout
       run: |
         docker logout
